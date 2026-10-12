@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Jamie ❤️</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    text-align:center;
+    background:pink;
+    padding-top:50px;
+}
+
+img{
+    width:250px;
+    border-radius:15px;
+}
+
+button{
+    padding:10px 20px;
+    margin:10px;
+    font-size:20px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+#yesBtn{
+    background:#ff1493;
+    color:white;
+}
+
+#noBtn{
+    background:#555;
+    color:white;
+    position:relative;
+}
+
+#message{
+    margin-top:20px;
+    font-size:30px;
+    color:#ff1493;
+}
+</style>
+
+</head>
+<body>
+
+<img src="cat.jpg" alt="Cat">
+
+<h1>Jamie, will you be my girlfriend? ❤️</h1>
+
+<button id="yesBtn">Yes ❤️</button>
+<button id="noBtn">No 😢</button>
+
+<div id="message"></div>
+
+<script>
+
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const message = document.getElementById("message");
+
+let size = 1;
+
+noBtn.addEventListener("mouseover", () => {
+
+    size += 0.1;
+    yesBtn.style.transform = `scale(${size})`;
+
+    const x = Math.random() * 300 - 150;
+    const y = Math.random() * 150 - 75;
+
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+yesBtn.addEventListener("click", () => {
+
+    message.innerHTML =
+    "You just made me the happiest guy alive ❤️";
+
+    for(let i=0;i<50;i++){
+
+        const heart=document.createElement("div");
+
+        heart.innerHTML="❤️";
+
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*window.innerWidth+"px";
+        heart.style.top=Math.random()*window.innerHeight+"px";
+        heart.style.fontSize="30px";
+
+        document.body.appendChild(heart);
+    }
+});
+
+</script>
+
+</body>
+</html>
